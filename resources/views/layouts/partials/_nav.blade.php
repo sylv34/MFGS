@@ -1,20 +1,26 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('img/logo.jpg')}}" alt="logo_mfgs" width="50" height="50"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+
     @guest
+        <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #dc3545;">
+        <a class="navbar-brand" href="{{route('login')}}"><img src="{{asset('img/logo.jpg')}}" alt="logo_mfgs" width="50" height="50"></a>
     @else
-        <ul class="navbar-nav justify-content-center">
+        <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #dc3545;">
+            <a class="navbar-brand" href="{{route('home',[Auth::user()->nom])}}"><img src="{{asset('img/logo.jpg')}}" alt="logo_mfgs" width="50" height="50"></a>
+        <ul class="navbar-nav">
+            <style type="text/css">
+                .nav-item{
+                    font-weight: bold;
+                }
+            </style>
             <li class="nav-item active">
-                <a class="nav-link" href="{{route('home')}}">Accueil <span class="sr-only">(current)</span></a>
+
+                <a class="nav-link" href="{{route('home',[Auth::user()->nom])}}">Accueil <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item ">
                 <a class="nav-link" href="#">Notes</a>
             </li>
 
             @if(Auth::User()->droit->cadre)
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="support" >Support</a>
                     <div class="dropdown-menu" aria-labelledby="support">
                         <a class="dropdown-item" href="#">Envoyer une demande</a>
@@ -24,14 +30,14 @@
             @endif
 
             @if(Auth::User()->isAdmin)
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="user" >Utilisateur</a>
                     <div class="dropdown-menu" aria-labelledby="user">
                         <a class="dropdown-item" href="#">Créer</a>
                         <a class="dropdown-item" href="#">Consulter</a>
                     </div>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="pole" >Pôles</a>
                     <div class="dropdown-menu" aria-labelledby="pole">
                         <a class="dropdown-item" href="#">Audition</a>

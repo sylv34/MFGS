@@ -31,7 +31,8 @@ class HomeController extends Controller
         //$poles=$poles->unique('libelle')
         //            ->filter(function($value){
         //                return $value->id!=18;
-        return view(nameViewForUser());
+        $nom = Auth::User()->nom;
+        return view(nameViewForUser(),compact('nom'));
         
     }
 }

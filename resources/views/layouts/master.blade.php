@@ -24,7 +24,7 @@
     <!-- Styles -->
   </head>
 
-  <body>
+  <body style="background: #fbeaeb">
     @include('layouts.partials._nav')
 
     <div class="container">
@@ -32,10 +32,9 @@
       <main class="py-4">
            @yield('content')
       </main>
-
-      @include('layouts.partials._foot')
       
     </div>
+    @include('layouts.partials._foot')
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

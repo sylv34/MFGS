@@ -13,4 +13,12 @@
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', function()
+{
+	if(Auth::check()){
+		return redirect()->route('home',Auth::user()->nom);
+	}
+	return redirect()->route('login');
+});
+
+Route::get('/{slug}', 'HomeController@index')->name('home');
