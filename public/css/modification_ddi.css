@@ -1,0 +1,82 @@
+.conteneur{
+	width : 83%;
+	float : right;
+	margin-top : 50px;
+	background-color: white;
+}
+table{
+	width : 100%;
+	border-collapse : collapse;
+
+}
+td{
+	/* border : 3px solid black; */
+	text-align : center;
+	color : black;
+}
+.demande{
+	height : 150px;
+	border-bottom : 2px solid black;
+	text-align : justify;
+	padding-left : 10px;
+	padding-right : 10px;
+}
+.bordure_droite{
+	border-right : 2px solid black;
+	text-align : left;
+	font-weight: bold;
+	width : 20%;
+}
+.bordure_gauche{
+	text-align : left;
+	padding-left:  20px;
+	width: 20%;
+	
+}
+.nom{
+	margin-right : 10px;
+}
+.urgence{
+	color :  #de2424;
+	font-size : 1.2em;
+}
+textarea, select{
+	border-radius : 10px 10px 10px 10px;
+	background-color : #ee928c;
+	color : black;
+	font-weight : bold;
+	font-family: 'Lato', Calibri, Arial, sans-serif;
+}
+textarea{
+	width : 90%;
+	height : 150px;
+}
+select{
+	width : 150px;
+	font-size : 1.1em;
+	text-align : center;
+}
+td table{
+	margin : 0;
+}
+.enregistrer{
+	width : 50%;
+	vertical-align : bottom;
+	padding-bottom: 15px;
+	
+}
+.form_urgence{
+	vertical-align : bottom;
+	padding-bottom: 15px;
+}
+.commentaire{
+	padding-top: 20px;;
+}
+.filtrer{
+	text-align : center;
+}
+.filtrer select{
+	font-size : 0.8em;
+	margin-right : 30px;
+	width : 80px;
+}

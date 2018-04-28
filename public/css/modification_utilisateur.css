@@ -1,0 +1,55 @@
+.conteneur{
+	width : 83%;
+	float : right;
+	margin-top : 50px;
+	background-color: white;
+}
+table{
+	margin : 20px 20px 20px 20px;
+	border-collapse : collapse;
+}
+
+td{
+	border: 2px solid black;
+	border-bottom: 2px solid black;
+	width : 30%;
+	padding : 0;
+	text-align : center;
+	color : black;
+	font-weight : bold;
+	font-size: 1.1em;
+}
+.bouton{
+	border : 0;
+}
+.form_modif{
+	width: 90%;
+	margin : auto;
+}
+.form_modif td{
+	height: 80px;
+	text-align: left;
+	border : 0;
+}
+label{
+	margin-right : 50px;
+}
+input[type=radio]{
+	vertical-align: middle;
+	margin-right: 100px;
+}
+select{
+	text-align : center;
+}
+input[type=text], select, input[type=password]{
+	border-radius : 10px 10px 10px 10px;
+	background-color : #ee928c;
+	color : black;
+	font-weight : bold;
+	font-family: 'Lato', Calibri, Arial, sans-serif;
+	width : 200px;
+	font-size : 1.1em;
+}
+.centrer{
+	border : 2px solid black;
+}

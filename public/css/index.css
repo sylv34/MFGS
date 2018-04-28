@@ -1,0 +1,37 @@
+body{
+	text-align : center;
+	font-weight : bold;
+}
+
+form{
+	color : #212121;
+	text-align : center;
+}
+ul{
+	display : inline-block;
+	list-style : none;
+	width : 28%;
+	margin : auto;
+	text-align : right;
+	padding : 0;
+	border : 2px solid #de2424;
+	border-radius : 20px;
+	background-color : #ffffff;
+	color : #de2424;
+}
+li{
+	margin-bottom : 30px;
+	margin-top : 40px;
+	margin-right : 30px;
+	margin-left : 30px;
+}
+.erreur{
+	font-size : 0.7em;
+}
+label{
+	margin-right : 15px;
+	margin-left : 0;
+}
+h1{
+	margin-bottom : 100px;
+}

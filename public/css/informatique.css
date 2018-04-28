@@ -1,0 +1,46 @@
+.utilisateur{
+	width : 49%;
+	float: right;
+	height : 100%;
+}
+.erreur_utilisateur{
+	font-size : 0.7em;
+	font-style : italic;
+	text-align : center;
+	color : #de2424;
+}
+td{
+	width : 33%;
+	padding : 0;
+	text-align : center;
+	color : black;
+	font-weight : bold;
+}
+.utilisateur input{
+	margin : 0;
+}
+table{
+	border-collapse : collapse;
+	height : 75%;
+}
+.conteneur_bas{
+	width : 83%;
+	float : right;
+	height : 50%;
+	background-color : #ffffff;
+	border-radius : 0 0 20px 0;
+}
+.lien_utiles{
+	width : 49%;
+	float : left;
+	height : 100%;
+}
+.lien_utiles ul{
+	width : 100%;
+	margin : auto;
+}
+.lien_def{
+	display : inline-block;
+	color : #de2424;
+	margin-left : 20px;
+}

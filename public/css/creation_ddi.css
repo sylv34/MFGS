@@ -1,0 +1,50 @@
+table{
+	width : 80%;
+	height : 80%;
+	margin-top : 50px;
+}
+td{
+	width : 50%;
+	text-align : justify;
+}
+.conteneur{
+	width : 83%;
+	float : right;
+	margin-top : 50px;
+	background-color: white;
+}
+textarea, select{
+	float : left;
+	border-radius : 10px 10px 10px 10px;
+	background-color : #ee928c;
+	color : black;
+	font-weight : bold;
+	font-family: 'Lato', Calibri, Arial, sans-serif;
+	font-size : 1.2em;
+}
+label{
+	float : right;
+	margin-right : 100px;
+	color : black;
+	font-weight : bold;
+	font-size : 1.3em;
+}
+input[type=text]{
+	background-color : #ee928c;
+	color : black;
+	font-weight : bold;
+	width : 500px;
+	
+}
+textarea{
+	width : 500px;
+	height : 300px;
+}
+select{
+	width : 250px;
+	text-align : center;
+}
+.envoyer{
+	text-align : center;
+}
+
