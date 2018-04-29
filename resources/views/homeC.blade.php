@@ -1,5 +1,2 @@
-@extends('layouts.master')
+@extends('homeAdmin')
 
-@section('content')
-	section cadre non admin
-@stop
