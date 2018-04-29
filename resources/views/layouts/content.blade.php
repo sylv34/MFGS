@@ -23,8 +23,16 @@
 							Vos Liens
 						</h5>
 			    	</div>
-			    	<div class="card-body">
-			    		<p class="card-text">ICI SE TROUVERA LES LIENS</p>
+			    	<div class="card-body text-left">
+			    		<ul class="list-unstyled">
+				    		@forelse($links as $link)
+				    			@if($link->user_id==Auth::User()->id)
+				    				<li><a href="{{$link->path}}" class="btn btn-primary"">{{$link->nom}}</a></li>
+				    			@endif
+				    		@empty
+				    			<p>Pas de lien enregistré</p>
+				    		@endforelse
+			    		</ul>
 			    	</div>
 			    </div>
 				<div class="card">

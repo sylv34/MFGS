@@ -43,6 +43,11 @@ class User extends Authenticatable
         return $this->hasMany('App\ddi','demandeur_user_id');
     }
 
+    public function link()
+    {
+        $this->belongsToMany('App\Link');
+    }
+
     public function isCadre()
     {
         return $this->droit_id==1||$this->droit_id%2==0;

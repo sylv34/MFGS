@@ -66,6 +66,13 @@ class CreateForeignKeys extends Migration
                 ->on('statu_ddis')
                 ->onDelete('cascade');
         });
+        Schema::table('links', function(Blueprint $table){
+            $table
+                ->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
+        });
     }
 
     /**
@@ -75,7 +82,7 @@ class CreateForeignKeys extends Migration
      */
     public function down()
     {
-                Schema::table('users', function(Blueprint $table){
+        Schema::table('users', function(Blueprint $table){
             $table->dropForeign('users_droit_id_foreign');
         });
 
@@ -91,6 +98,9 @@ class CreateForeignKeys extends Migration
             $table->dropForeign('ddis_urgence_ddi_id_foreign');
             $table->dropForeign('ddis_statu_ddi_id_foreign');
             $table->dropForeign('ddis_droit_id_foreign');
+        });
+        Schema::table('links', function(Blueprint $table){
+            $table->dropForeign('links_user_id_foreign');
         });
     }
 }
