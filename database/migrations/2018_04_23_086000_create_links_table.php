@@ -29,6 +29,8 @@ class CreateLinksTable extends Migration
                 ['nom'=>'Laravel', 'path'=>'https://laravel.com/docs','user_id'=>1],
                 ['nom'=>'Laravel', 'path'=>'https://laravel.com/docs','user_id'=>1],
                 ['nom'=>'Laravel', 'path'=>'https://laravel.com/docs','user_id'=>1],
+                ['nom'=>'Laravelautre', 'path'=>'https://laravel.com/docs','user_id'=>2],
+
             ]
         );
     }

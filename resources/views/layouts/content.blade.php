@@ -24,15 +24,20 @@
 						</h5>
 			    	</div>
 			    	<div class="card-body text-left">
-			    		<ul class="list-unstyled">
+			    		<div class="list-group">
 				    		@forelse($links as $link)
-				    			@if($link->user_id==Auth::User()->id)
-				    				<li><a href="{{$link->path}}" class="btn btn-primary"">{{$link->nom}}</a></li>
-				    			@endif
+				    			<a class="btn btn-danger btn-sm mb-3" href="{{$link->path}}" role="button">{{$link->nom}}</a>
 				    		@empty
 				    			<p>Pas de lien enregistré</p>
 				    		@endforelse
+			    		</div>
+				    		
 			    		</ul>
+			    		<div class="row">
+			    			<div class="mx-auto ">
+				    			{{$links->links()}}	
+			    			</div>
+				    	</div>
 			    	</div>
 			    </div>
 				<div class="card">

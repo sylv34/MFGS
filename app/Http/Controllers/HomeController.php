@@ -26,13 +26,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-
-        //$poles= droit::where('id','<>',Auth::user()->droit->id)->get();
-        //$poles=$poles->unique('libelle')
-        //            ->filter(function($value){
-        //                return $value->id!=18;
-        $paginator=Link::whereUser_id(Auth::User()->id)->paginate(5);
-        return view(nameViewForUser(),['nom'=>Auth::User()->nom,'links'=>$paginator]);
+        $paginatorLinks=paginateAutoLinks();
+        return view(nameViewForUser(),['nom'=>Auth::User()->nom,'links'=>$paginatorLinks]);
         
     }
 }
