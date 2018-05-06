@@ -11,7 +11,6 @@
 |
 */
 
-Auth::routes();
 
 Route::get('/', function()
 {
@@ -21,4 +20,10 @@ Route::get('/', function()
 	return redirect()->route('login');
 });
 
+Auth::routes();
+
 Route::get('/{slug}', 'HomeController@index')->name('home');
+
+Route::get('/support/consultation', 'SupportController@visu')->name('support.visu');
+
+Route::resource('support', 'SupportController', ['except' => ['index']]);

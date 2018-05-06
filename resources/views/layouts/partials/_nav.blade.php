@@ -24,7 +24,7 @@
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="support" >Support</a>
                     <div class="dropdown-menu" aria-labelledby="support">
                         <a class="dropdown-item" href="#">Envoyer une demande</a>
-                        <a class="dropdown-item" href="#">Consulter les demandes</a>
+                        <a class="dropdown-item" href="{{route('support.visu')}}">Consulter les demandes</a>
                     </div>
                 </li>
             @endif

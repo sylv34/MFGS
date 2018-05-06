@@ -4,12 +4,12 @@ if (!function_exists('nameViewForUser')) {
 	function nameViewForUser()
 	{
 		if(Auth::User()->isAdmin){
-	        return 'homeAdmin';
+	        return 'home.homeAdmin';
 	    }
 	    if(Auth::User()->droit->cadre){
-	        return 'homeC';
+	        return 'home.homeC';
 	    }else{
-	    	return 'homeNC';
+	    	return 'home.homeNC';
 	    }
 	}
 }

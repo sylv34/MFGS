@@ -10,4 +10,4 @@ class urgenceDdi extends Model
     {
     	return $this->hasMany('App\ddi');
     }
-}}
+}

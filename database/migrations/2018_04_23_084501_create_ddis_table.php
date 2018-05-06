@@ -17,13 +17,13 @@ class CreateDdisTable extends Migration
             $table->increments('id');
             $table->string('titre');
             $table->text('contenu');
-            $table->text('commentaires');
-            $table->date('date_demande');
+            $table->text('commentaires')->nullable();
+            $table->date('date_demande')->default(now());
             $table->unsignedInteger('droit_id');
             $table->unsignedInteger('demandeur_user_id');
             $table->unsignedInteger('concerne_user_id');
             $table->unsignedInteger('urgence_ddi_id');
-            $table->unsignedInteger('statu_ddi_id');
+            $table->unsignedInteger('statu_ddi_id')->default(1);
         });
     }
 

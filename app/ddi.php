@@ -25,11 +25,11 @@ class ddi extends Model
 
 	public function urgence_ddi()
 	{
-		return $this->belongsTo('App\Models\urgenceDdi');
+		return $this->belongsTo('App\urgenceDdi');
 	}
 
 	public function statu_ddi()
 	{
-		return $this->belongsTo('App\Models\StatuDdi');
+		return $this->belongsTo('App\StatuDdi');
 	}
 }
