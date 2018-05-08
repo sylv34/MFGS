@@ -15,7 +15,10 @@ class SupportController extends Controller
      */
     public function visu()
     {
-        $ddis = ddi::whereDroit_id(Auth::User()->droit_id)->get();
+        $ddis = ddi::where([
+                            ['droit_id', '=', Auth::User()->droit_id],
+                            ['statu_ddi_id', '<>', 4]
+                        ])->get();
         return view('support.index', compact('ddis'));
     }
 
@@ -77,7 +80,7 @@ class SupportController extends Controller
         $ddi->commentaires = $request->input('commentaires');
         $ddi->statu_ddi_id = $request->input('statut');
         $ddi->save();
-        return redirect()->route('support.edit',$id)->with('status', sprintf('DDI_%d modifiée',$id));
+        return redirectAutoDdi($ddi,$id);
     }
 
     /**

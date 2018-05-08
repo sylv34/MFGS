@@ -11,7 +11,7 @@ class SupportsTableSeeder extends Seeder
      */
     public function run()
     {
-    	for ($i=0; $i < 10; $i++) { 
+    	for ($i=0; $i < 3; $i++) { 
 	         DB::table('ddis')->insert([
 	            'titre' => 'titre ddi'.$i,
 	            'contenu' => 'contenu ddi '.$i,
@@ -19,7 +19,7 @@ class SupportsTableSeeder extends Seeder
 	            'droit_id' => 1,
 	            'demandeur_user_id' => 2,
 	            'concerne_user_id' => 2,
-	            'urgence_ddi_id' => 1
+	            'urgence_ddi_id' => 4
 	        ]);    		
     	}
         DB::table('ddis')->insert([
