@@ -35,7 +35,7 @@
 		    				DDI_{{$ddi->id}}
 		    			</div>
 		    			<div class="col">
-		    				<a href="{{route('support.show',$ddi->id)}}">{{$ddi->titre}}</a>
+		    				<a href="{{route('support.edit',$ddi->id)}}">{{$ddi->titre}}</a>
 		    			</div>
 		    			<div class="col">
 			    			{{$ddi->concerne_user->nom.' '.$ddi->concerne_user->prenom}}

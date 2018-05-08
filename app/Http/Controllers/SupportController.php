@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\{urgenceDdi,ddi};
+use App\{urgenceDdi,ddi, statuDdi};
 
 class SupportController extends Controller
 {
@@ -48,8 +48,7 @@ class SupportController extends Controller
      */
     public function show($id)
     {
-        $ddi= Ddi::findOrFail($id);
-        return view('support.show', compact('ddi'));
+        
     }
 
     /**
@@ -60,7 +59,9 @@ class SupportController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ddi= Ddi::findOrFail($id);
+        $statuts = statuDdi::all();
+        return view('support.edit', ['ddi' => $ddi, 'statuts'=>$statuts]);
     }
 
     /**
@@ -72,7 +73,11 @@ class SupportController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $ddi = ddi::findOrFail($id);
+        $ddi->commentaires = $request->input('commentaires');
+        $ddi->statu_ddi_id = $request->input('statut');
+        $ddi->save();
+        return redirect()->route('support.edit',$id)->with('status', sprintf('DDI_%d modifiée',$id));
     }
 
     /**
