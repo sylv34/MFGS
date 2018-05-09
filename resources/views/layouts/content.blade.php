@@ -30,7 +30,7 @@
 			    	</div>
 			    	<div class="card-body text-left">
 			    		<div class="list-group">
-				    		@forelse($links as $link)
+				    		@forelse($data['links'] as $link)
 				    			<a class="btn btn-danger btn-sm mb-3" href="{{$link->path}}" role="button">{{$link->nom}}</a>
 				    		@empty
 				    			<p>Pas de lien enregistré</p>
@@ -40,7 +40,7 @@
 			    		</ul>
 			    		<div class="row">
 			    			<div class="mx-auto ">
-				    			{{$links->links()}}	
+				    			{{$data['links']->links()}}	
 			    			</div>
 				    	</div>
 			    	</div>
@@ -51,15 +51,9 @@
 							Vos Statistiques
 						</h5>
 			    	</div>
-			    	<ul class="list-group list-group-flush">
-			    		<li class="list-group-item">
-			    			@if(Auth::User()->droit->cadre)
-			    				<h6 class="text-danger">Vos Objectifs</h6>
-			    			@endif
-			    			<p class="text-left">Ici les objectifs</p>
-			    		</li>
+			    	<div class="card-body">
 			    		@yield('content-cadre-stat')
-			    	</ul>
+			    	</div>
 			    </div>
 				<div class="card">
 					<div class="card-header bg-danger text-white" id="headingOne">

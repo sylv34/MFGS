@@ -1,10 +1,8 @@
 @extends('layouts.content')
 
 @section('content-cadre-stat')
-	<li class="list-group-item">
-		<h6 class="text-danger">Vos DDI</h6>
-		<p class="text-left">Ici les STAT DDI</p>
-	</li>
+	{!! $chart->container() !!}	
+	{!! $chart->script() !!}
 @stop
 
 @section('content-cadre-ddi')
@@ -27,7 +25,7 @@
 						</div>
 					</div>
 				</li>
-				@forelse($ddis as $ddi)
+				@forelse($data['ddis'] as $ddi)
 					<li class="list-group-item">
 						<div class="row">
 							<div class="col">
