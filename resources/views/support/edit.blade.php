@@ -1,11 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-	@if (session('status'))
-	    <div class="alert alert-success">
-	        {{ session('status') }}
-	    </div>
-	@endif
 	<div class="card">
 		<div class="card-header bg-danger text-white text-center">
 			<strong class="text-uppercase">{{$ddi->titre}}</strong>

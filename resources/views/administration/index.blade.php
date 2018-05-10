@@ -18,6 +18,11 @@
 				    </tr>
 				</thead>
 	    		<tbody class="text-center">
+	    			@if (session('status'))
+					    <div class="alert alert-success">
+					        {{ session('status') }}
+						</div>
+					@endif
 					@foreach($users as $user)
 					    <tr>
 					    	<td>{{$user->id}}</td>

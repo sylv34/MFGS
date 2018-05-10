@@ -13,7 +13,7 @@
             </style>
             <li class="nav-item active">
 
-                <a class="nav-link" href="{{route('home',[Auth::user()->nom])}}">Accueil <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{route('home',[Auth::user()->nom])}}">Accueil {!!url()->current()==route('home') ? '<span class="sr-only">(current)</span>' : ''!!}</a>
             </li>
             <li class="nav-item ">
                 <a class="nav-link" href="#">Notes</a>
@@ -33,7 +33,7 @@
                 <li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="user" >Utilisateur</a>
                     <div class="dropdown-menu" aria-labelledby="user">
-                        <a class="dropdown-item" href="">Créer</a>
+                        <a class="dropdown-item" href="{{route('administration.create')}}">Créer</a>
                         <a class="dropdown-item" href="{{route('administration.index')}}">Consulter</a>
                     </div>
                 </li>

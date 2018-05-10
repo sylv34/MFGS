@@ -22,6 +22,17 @@ class SupportsTableSeeder extends Seeder
 	            'urgence_ddi_id' => 4
 	        ]);    		
     	}
+        for ($i=0; $i < 3; $i++) { 
+             DB::table('ddis')->insert([
+                'titre' => 'titre ddi'.$i,
+                'contenu' => 'contenu ddi '.$i,
+                'date_demande'=> now(),
+                'droit_id' => 1,
+                'demandeur_user_id' => 2,
+                'concerne_user_id' => 2,
+                'urgence_ddi_id' => 3
+            ]);         
+        }
         DB::table('ddis')->insert([
                 'titre' => 'titre ddi'.$i,
                 'contenu' => 'contenu ddi '.$i,

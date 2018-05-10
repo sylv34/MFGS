@@ -28,3 +28,5 @@ Route::get('/support/consultation', 'SupportController@visu')->name('support.vis
 
 Route::resource('support', 'SupportController', ['except' => ['index']]);
 Route::resource('administration', 'AdminController');
+Route::get('/administration/password/{nom}/edit', 'AdminController@editPassword')->name('administration.editPassword');
+Route::put('/administration/password/{id}', 'AdminController@updatePassword')->name('administration.updatePassword');

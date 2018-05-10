@@ -20,7 +20,7 @@ class CreateDroitsTable extends Migration
         });
         DB::table('droits')->insert(
             [
-                ['libelle'=>'Administrateur', 'cadre'=>true],
+                ['libelle'=>'Informatique', 'cadre'=>true],
                 ['libelle'=>'Comptabilite', 'cadre'=>true],
                 ['libelle'=>'Comptabilite', 'cadre'=>false],
                 ['libelle'=>'Communication', 'cadre'=>true],

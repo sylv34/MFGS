@@ -12,7 +12,6 @@
 					<div class="form-group col-md-2">
 						<label for="service">Service concerné : </label>
 						<select id="service" name="service" class="form-control">
-							<option value="1" >Informatique</option>
 							@foreach($data['libelles'] as $libelle)
 								<option value="{{$libelle->id}}" >{{$libelle->libelle}}</option>
 							@endforeach

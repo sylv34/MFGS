@@ -29,7 +29,8 @@
         },
         "files":[
             "App/Helpers/supportHelpers.php",
-            "App/Helpers/homeHelpers.php"
+            "App/Helpers/homeHelpers.php",
+            "App/Helpers/administrationHelpers.php"
         ]
     },
     "autoload-dev": {

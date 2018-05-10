@@ -27,7 +27,7 @@
   <body>
     <style type="text/css">
 
-      input[type=text],input[type=email], select option, body{
+      body{
         background-color: #fbeaeb;
       }
       .custom-control-label:before{
@@ -35,7 +35,10 @@
       }
       .custom-checkbox .custom-control-input:checked~.custom-control-label::before{
         background-color:#ff4444;
-    }
+      }
+      label{
+        font-weight: bold;
+      }
 
     </style>
     @include('layouts.partials._nav')

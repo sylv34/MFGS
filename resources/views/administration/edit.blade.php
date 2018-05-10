@@ -8,7 +8,7 @@
 	@endif
 	<div class="card">
 		<div class="card-header bg-danger text-white text-center">
-			<strong class="text-uppercase">Modifier les informations d'un utilisateur</strong>
+			<strong class="text-uppercase">Modifier les informations de {{$data['user']->nom}} {{$data['user']->prenom}}</strong>
 		</div>
 		<div class="card-body">
 			<form action="{{route('administration.update', $data['user']->id)}}" method="POST">
@@ -27,37 +27,26 @@
 				<div class="form-group col-md-6">
 					<label for="email">Email</label>
 					<input type="email" name="email" id="email" class="form-control" value="{{$data['user']->email}}">
-				</div>
-				<div class="form-row col">
-					<div class="form-group col-md-5">
-						<label for="password">Mot de passe</label>
-						<input type="text" name="password" id="password" class="form-control" aria-describedby="passwordHelp">
-						<small id="passwordHelp" class="form-text text-muted">Ne rien mettre si le mot de passe ne doit pas être changé</small>
-					</div>
-					<div class="form-group col-md-5 ml-4">
-						<label for="passwordBis">Retaper</label>
-						<input type="text" name="passwordBis" id="passwordBis" class="form-control">
-					</div>
+					<a href="{{route('administration.editPassword',$data['user']->nom)}}">Changer le mot de passe ?</a>
 				</div>
 				<div class="form-row col align-items-start">
 					<div class="form-group col-md-4">
 						<label for="service">Service</label>
 						<select id="service" name="service" class="form-control">
-							<option value="1">Informatique</option>
 							@foreach($data['services'] as $service)
-								<option value="{{$service->id}}">{{$service->libelle}}</option>
+								<option value="{{$service->id}}" {{$data['user']->droit->libelle == $service->libelle ?'selected':''}}>{{$service->libelle}}</option>
 							@endforeach
 						</select>
 					</div>
 					<div class="form-group col custom-control custom-control-inline my-auto ml-4">
 						<div class="custom-checkbox col">
-							<input class="custom-control-input" type="checkbox" value="true" id="cadre" name="cadre" {{$data['user']->isCadre() ?'checked':''}}>
+							<input class="custom-control-input" type="checkbox" id="cadre" name="cadre" {{$data['user']->isCadre() ?'checked':''}}>
 							<label class="custom-control-label ml-2" for="cadre">
 							Cadre
 							</label>
 						</div>
 						<div class="custom-checkbox col">
-						  <input class="custom-control-input checkbox-danger" type="checkbox" value="true" id="admin" name="admin" {{$data['user']->isAdmin ?'checked':''}}>
+						  <input class="custom-control-input checkbox-danger" type="checkbox" id="admin" name="admin" {{$data['user']->isAdmin ?'checked':''}}>
 						  <label class="custom-control-label ml-2" for="admin">
 						    Administrateur
 						  </label>

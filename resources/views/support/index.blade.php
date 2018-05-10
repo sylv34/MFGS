@@ -1,6 +1,11 @@
 @extends('layouts.master')
 
 @section('content')
+	@if (session('status'))
+	    <div class="alert alert-success">
+	        {{ session('status') }}
+	    </div>
+	@endif
 	<div class="card">
 		<div class="card-header bg-danger text-white text-center font-weight-bold">
 			Demandes d'intervention
