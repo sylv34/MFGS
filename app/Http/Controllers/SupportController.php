@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\DdiRequest;
 use Illuminate\Support\Facades\Auth;
-use App\{urgenceDdi,ddi, statuDdi};
+use App\{urgenceDdi,ddi, statuDdi, droit, User};
 
 class SupportController extends Controller
 {
@@ -15,10 +16,7 @@ class SupportController extends Controller
      */
     public function visu()
     {
-        $ddis = ddi::where([
-                            ['droit_id', '=', Auth::User()->droit_id],
-                            ['statu_ddi_id', '<>', 4]
-                        ])->get();
+        $ddis = getDdi();
         return view('support.index', compact('ddis'));
     }
 
@@ -28,8 +26,9 @@ class SupportController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-
+    {   
+        $data=getDataCreate();
+        return view('support.create', compact('data'));
     }
 
     /**
@@ -38,20 +37,18 @@ class SupportController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DdiRequest $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        
+        ddi::create([
+            'titre' => $request->titre,
+            'contenu' => $request->contenu,
+            'date_demande' => now(),
+            'droit_id' => $request->service,
+            'demandeur_user_id' => Auth::User()->id,
+            'concerne_user_id' => $request->userConcerne,
+            'urgence_ddi_id' => $request->urgence,
+        ]);
+         return redirect()->route('home', Auth::User()->droit->libelle)->with('status', "Demande d'intervention envoyée");
     }
 
     /**

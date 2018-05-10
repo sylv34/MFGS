@@ -22,7 +22,7 @@
 						<div class="col text-right">
 							<strong>Urgence : </strong>
 						</div>
-						<div class="col text-left {{$ddi->urgence_ddi->id==4 ? 'text-danger' : ''}}">
+						<div class="col text-left {{$ddi->isUrgent()}}">
 							{{$ddi->urgence_ddi->libelle}}
 						</div>
 					</div>
@@ -34,7 +34,7 @@
 							<form method="POST" action="{{route('support.update', $ddi->id)}} ">
 								@csrf
 								@method('PUT')
-								<select name="statut">
+								<select name="statut" class="form-control">
 									@foreach($statuts as $statut)
 										  <option value="{{$statut->id}}" {{$ddi->statu_ddi_id == $statut->id ?'selected':''}}>{{$statut->libelle}}</option>
 									@endforeach

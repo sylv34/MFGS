@@ -31,7 +31,7 @@
 							<div class="col">
 								<a href="{{route('support.edit',$ddi->id)}}">{{$ddi->titre}}</a>
 							</div>
-							<div class="col {{$ddi->urgence_ddi->id==4 ? 'text-danger font-weight-bold' : ''}}">
+							<div class="col {{$ddi->isUrgent()}}">
 								{{$ddi->urgence_ddi->libelle}}
 							</div>
 							<div class="col">

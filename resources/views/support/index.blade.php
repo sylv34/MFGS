@@ -2,60 +2,38 @@
 
 @section('content')
 	<div class="card">
-			<div class="card-header bg-danger text-white">
-				<div class="row">
-					<div class="col">
-						ID
-					</div>
-					<div class="col">
-						Titre
-					</div>
-					<div class="col">
-						Utilisateur concerné
-					</div>
-					<div class="col">
-						Utilisateur demandeur
-					</div>
-					<div class="col">
-						Urgence
-					</div>
-					<div class="col">
-						Date création
-					</div>
-					<div class="col">
-						Statu
-					</div>
-				</div>
-					
-	    	</div>
-	    	<div class="card-body text-left">
-				@forelse($ddis as $ddi)
-		    		<div class="row">
-		    			<div class="col">
-		    				DDI_{{$ddi->id}}
-		    			</div>
-		    			<div class="col">
-		    				<a href="{{route('support.edit',$ddi->id)}}">{{$ddi->titre}}</a>
-		    			</div>
-		    			<div class="col">
-			    			{{$ddi->concerne_user->nom.' '.$ddi->concerne_user->prenom}}
-		    			</div>
-		    			<div class="col">
-		    				{{$ddi->demandeur_user->nom.' '.$ddi->demandeur_user->prenom}}
-		    			</div>
-		    			<div class="col">
-		    				{{$ddi->urgence_ddi->libelle}}
-		    			</div>
-		    			<div class="col">
-		    				{{$ddi->date_demande}}
-		    			</div>
-		    			<div class="col">
-							{{$ddi->statu_ddi->libelle}}
-						</div>
-			    	</div>
-				@empty
-	    	</div>
-	    </div>
-		<p>Pas de ddi</p>
-	@endforelse
+		<div class="card-header bg-danger text-white text-center font-weight-bold">
+			Demandes d'intervention
+    	</div>
+    	<div class="card-body">
+	    	<table class="table table-striped">
+	    		<thead class="text-center">
+				    <tr class="text-danger">
+						<th scope="col">ID</th>
+						<th scope="col">Titre</th>
+						<th scope="col">Utilisateur concerné</th>
+						<th scope="col">Utilisateur demandeur</th>
+						<th scope="col">Urgence</th>
+						<th scope="col">Date création</th>
+						<th scope="col">Statut</th>
+				    </tr>
+				</thead>
+	    		<tbody class="text-center">
+					@forelse($ddis as $ddi)
+					    <tr>
+					    	<td>DDI_{{$ddi->id}}</td>
+					    	<td><a href="{{route('support.edit',$ddi->id)}}" class="">{{$ddi->titre}}</a></td>
+					    	<td>{{$ddi->concerne_user->nom.' '.$ddi->concerne_user->prenom}}</td>
+					    	<td>{{$ddi->demandeur_user->nom.' '.$ddi->demandeur_user->prenom}}</td>
+					    	<td class="{{$ddi->isUrgent()}}">{{$ddi->urgence_ddi->libelle}}</td>
+					    	<td>{{$ddi->date_demande}}</td>
+					    	<td>{{$ddi->statu_ddi->libelle}}</td>
+					    </tr>
+					@empty
+						<p>Pas de ddi</p>
+					@endforelse
+				</tbody>
+			</table>
+		</div>
+	</div>
 @stop

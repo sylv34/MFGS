@@ -28,7 +28,7 @@
             "App\\": "app/"
         },
         "files":[
-            "App/Helpers/baseHelpers.php",
+            "App/Helpers/supportHelpers.php",
             "App/Helpers/homeHelpers.php"
         ]
     },

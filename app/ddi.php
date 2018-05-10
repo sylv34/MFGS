@@ -7,6 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class ddi extends Model
 {
 	public $timestamps =false;
+
+	protected $fillable = [
+        'titre',
+        'contenu',
+        'date_demande',
+        'droit_id',
+        'demandeur_user_id',
+        'concerne_user_id',
+        'urgence_ddi_id',
+    ];
 	
 	public function droit()
 	{
@@ -31,5 +41,8 @@ class ddi extends Model
 	public function statu_ddi()
 	{
 		return $this->belongsTo('App\StatuDdi');
+	}
+	public function isUrgent(){
+		return $this->urgence_ddi->id==4 ? 'bg-danger text-white font-weight-bold' : '';
 	}
 }

@@ -23,7 +23,7 @@
                 <li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="support" >Support</a>
                     <div class="dropdown-menu" aria-labelledby="support">
-                        <a class="dropdown-item" href="#">Envoyer une demande</a>
+                        <a class="dropdown-item" href="{{route('support.create')}}">Envoyer une demande</a>
                         <a class="dropdown-item" href="{{route('support.visu')}}">Consulter les demandes</a>
                     </div>
                 </li>
@@ -33,22 +33,8 @@
                 <li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="user" >Utilisateur</a>
                     <div class="dropdown-menu" aria-labelledby="user">
-                        <a class="dropdown-item" href="#">Créer</a>
-                        <a class="dropdown-item" href="#">Consulter</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown ">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="pole" >Pôles</a>
-                    <div class="dropdown-menu" aria-labelledby="pole">
-                        <a class="dropdown-item" href="#">Audition</a>
-                        <a class="dropdown-item" href="#">Clinique</a>
-                        <a class="dropdown-item" href="#">Communication</a>
-                        <a class="dropdown-item" href="#">Comptabilite</a>
-                        <a class="dropdown-item" href="#">EHPAD</a>
-                        <a class="dropdown-item" href="#">Informatique</a>
-                        <a class="dropdown-item" href="#">Logement</a>
-                        <a class="dropdown-item" href="#">Optique</a>
-                        <a class="dropdown-item" href="#">SSIAD</a>
+                        <a class="dropdown-item" href="">Créer</a>
+                        <a class="dropdown-item" href="{{route('administration.index')}}">Consulter</a>
                     </div>
                 </li>
             @endif

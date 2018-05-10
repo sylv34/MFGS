@@ -16,12 +16,12 @@
 	</style>
 	<div class="row text-center">
 		<div class="col-lg-12 mx-auto">
+			@if (session('status'))
+			    <div class="alert alert-success">
+			        {{ session('status') }}
+				</div>
+			@endif
 			<div class="card-group">
-				@if (session('status'))
-				    <div class="alert alert-success">
-				        {{ session('status') }}
-	    			</div>
-				@endif
 				<div class="card">
 					<div class="card-header bg-danger text-white" id="liens">
 						<h5 class="mb-0">
