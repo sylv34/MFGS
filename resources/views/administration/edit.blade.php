@@ -39,18 +39,34 @@
 						<input type="text" name="passwordBis" id="passwordBis" class="form-control">
 					</div>
 				</div>
-				<div class="form-row col">
-					<div class="form-group col-md-5">
+				<div class="form-row col align-items-start">
+					<div class="form-group col-md-4">
 						<label for="service">Service</label>
 						<select id="service" name="service" class="form-control">
+							<option value="1">Informatique</option>
 							@foreach($data['services'] as $service)
 								<option value="{{$service->id}}">{{$service->libelle}}</option>
 							@endforeach
 						</select>
 					</div>
-					<div class="form-group col-md-5 ml-4">
-						<label for="passwordBis">Retaper</label>
-						<input type="text" name="passwordBis" id="passwordBis" class="form-control">
+					<div class="form-group col custom-control custom-control-inline my-auto ml-4">
+						<div class="custom-checkbox col">
+							<input class="custom-control-input" type="checkbox" value="true" id="cadre" name="cadre" {{$data['user']->isCadre() ?'checked':''}}>
+							<label class="custom-control-label ml-2" for="cadre">
+							Cadre
+							</label>
+						</div>
+						<div class="custom-checkbox col">
+						  <input class="custom-control-input checkbox-danger" type="checkbox" value="true" id="admin" name="admin" {{$data['user']->isAdmin ?'checked':''}}>
+						  <label class="custom-control-label ml-2" for="admin">
+						    Administrateur
+						  </label>
+						</div>
+					</div>
+				</div>
+				<div class="form-row mt-4 text-center">
+					<div class="form-group col">
+						<button type="submit" class="btn btn-danger">Envoyer</button>
 					</div>
 				</div>
 			</form>

@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\{User,droit,Link,ddi};
 use App\Charts\DdiChart;
-use App\Helplers\helpers;
 
 class HomeController extends Controller
 {

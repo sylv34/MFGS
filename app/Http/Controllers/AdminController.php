@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\{User,droit};
+
 
 class AdminController extends Controller
 {
@@ -45,10 +47,10 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($nom)
     {
-        $user = User::findOrFail($id);
-        $services = getDroitLibelle();
+        $user = User::whereNom($nom)->first();
+        $services = getDroitLibelles();
         $data = ['user' => $user, 'services' =>$services];
         return view('administration.edit', compact('data'));
     }

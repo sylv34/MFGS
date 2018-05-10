@@ -24,7 +24,20 @@
     <!-- Styles -->
   </head>
 
-  <body style="background: #fbeaeb">
+  <body>
+    <style type="text/css">
+
+      input[type=text],input[type=email], select option, body{
+        background-color: #fbeaeb;
+      }
+      .custom-control-label:before{
+        background-color:#ff4444;
+      }
+      .custom-checkbox .custom-control-input:checked~.custom-control-label::before{
+        background-color:#ff4444;
+    }
+
+    </style>
     @include('layouts.partials._nav')
 
     <div class="container">

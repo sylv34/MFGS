@@ -21,7 +21,7 @@
 					@foreach($users as $user)
 					    <tr>
 					    	<td>{{$user->id}}</td>
-					    	<td class="text-left"><a href="{{route('administration.edit',$user->id)}}" class="">{{$user->nom}} {{$user->prenom}}</a></td>
+					    	<td class="text-left"><a href="{{route('administration.edit',$user->nom)}}" class="">{{$user->nom}} {{$user->prenom}}</a></td>
 					    	<td>{{$user->email}}</td>
 					    	<td>{{$user->droit->libelle}}</td>
 					    	<td>{{$user->isCadre() ? 'Oui' : 'Non'}} </td>
