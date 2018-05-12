@@ -44,7 +44,7 @@ class AdminController extends Controller
         $droit = isset($request->cadre) ? selectDroitUser($request->service, $request->cadre) : selectDroitUser($request->service);
         
         $isAdmin = isset($request->admin) ? true : false;
-         User::create([
+        User::create([
             'nom' => strtoupper($request->nom),
             'prenom' => ucfirst($request->prenom),
             'email' => $request->email,
@@ -52,7 +52,7 @@ class AdminController extends Controller
             'droit_id' => $droit,
             'isAdmin' => $isAdmin,
         ]);
-         return redirect()->route('administration.index')->with('status', "Utilisateur ajouté avec succès");
+        return redirect()->route('administration.index')->with('status', "Utilisateur ajouté avec succès");
     }
 
     /**

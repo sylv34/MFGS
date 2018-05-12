@@ -16,16 +16,7 @@ class CreateUrgenceDdisTable extends Migration
         Schema::create('urgence_ddis', function (Blueprint $table) {
             $table->increments('id');
             $table->string('libelle');
-        });
-
-        DB::table('urgence_ddis')->insert(
-            [
-                ['libelle'=>'Mineur'],
-                ['libelle'=>'Moyen'],
-                ['libelle'=>'Urgent'],
-                ['libelle'=>'Bloquant'],
-            ]
-        );
+        });     
     }
 
     /**

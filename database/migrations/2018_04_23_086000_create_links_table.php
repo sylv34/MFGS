@@ -19,20 +19,6 @@ class CreateLinksTable extends Migration
             $table->string('path');
             $table->unsignedInteger('user_id');
         });
-
-        DB::table('links')->insert(
-            [
-
-                ['nom'=>'GIT', 'path'=>'https://github.com','user_id'=>1],
-                ['nom'=>'Laravel', 'path'=>'https://laravel.com/docs','user_id'=>1],
-                ['nom'=>'Laravel', 'path'=>'https://laravel.com/docs','user_id'=>1],
-                ['nom'=>'Laravel', 'path'=>'https://laravel.com/docs','user_id'=>1],
-                ['nom'=>'Laravel', 'path'=>'https://laravel.com/docs','user_id'=>1],
-                ['nom'=>'Laravel', 'path'=>'https://laravel.com/docs','user_id'=>1],
-                ['nom'=>'Laravelautre', 'path'=>'https://laravel.com/docs','user_id'=>2],
-
-            ]
-        );
     }
 
     /**

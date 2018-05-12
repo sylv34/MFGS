@@ -17,14 +17,8 @@ class CreateNotesTable extends Migration
             $table->increments('id');
             $table->string('titre');
             $table->date('datePublication');
-            $table->string('contenu');
+            $table->string('path');
         });
-
-        DB::table('notes')->insert(
-            [
-                ['titre'=>"test", 'datePublication'=>now(), 'contenu'=>'root\path']
-            ]
-        );
     }
 
     /**

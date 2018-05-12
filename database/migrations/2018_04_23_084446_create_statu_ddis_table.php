@@ -17,15 +17,6 @@ class CreateStatuDdisTable extends Migration
             $table->increments('id');
             $table->string('libelle');
         });
-
-        DB::table('statu_ddis')->insert(
-            [
-                ['libelle'=>'En attente'],
-                ['libelle'=>'En cours'],
-                ['libelle'=>'Retardé'],
-                ['libelle'=>'Cloturé'],
-            ]
-        );
     }
 
     /**

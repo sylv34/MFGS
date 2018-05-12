@@ -15,9 +15,9 @@ class DdiChart extends Chart
     {
         parent::__construct();
 
-        $this->labels(['Bloquant','Urgent','En attente', 'Retardé'])
+        $this->labels(['Janv','Fev','Mar', 'Avr','Mai','Juin', 'Juil','Aout', 'Sept', 'Oct', 'Nov', 'Dec'])
         ->height(50)
-        ->width(80)
-        ->options(['legend' => ['display' => false]]);
+        ->loaderColor('red');
+
     }
 }
