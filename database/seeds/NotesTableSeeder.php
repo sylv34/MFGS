@@ -11,10 +11,6 @@ class NotesTableSeeder extends Seeder
      */
     public function run()
     {
-    	DB::table('notes')->insert(
-    		[
-    			['titre'=>"test", 'datePublication'=>now(), 'path'=>'root\path']
-    		]
-    	);
+    	
     }
 }

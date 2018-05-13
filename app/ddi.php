@@ -12,6 +12,7 @@ class ddi extends Model
         'titre',
         'contenu',
         'date_demande',
+        'month',
         'droit_id',
         'demandeur_user_id',
         'concerne_user_id',

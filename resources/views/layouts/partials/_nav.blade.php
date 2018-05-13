@@ -1,4 +1,3 @@
-
 @guest
 <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #dc3545;">
     <a class="navbar-brand" href="{{route('login')}}"><img src="{{asset('img/logo.jpg')}}" alt="logo_mfgs" width="50" height="50"></a>

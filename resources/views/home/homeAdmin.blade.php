@@ -1,8 +1,8 @@
 @extends('layouts.content')
 
 @section('content-cadre-stat')
-{!! $chart->container() !!}	
-{!! $chart->script() !!}
+{!! $data['chart']->container() !!}	
+{!! $data['chart']->script() !!}
 @stop
 
 @section('content-cadre-ddi')

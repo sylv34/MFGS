@@ -8,7 +8,7 @@
 </div>
 <div class="row mt-2 mb-4">
 	<div class="col-lg-12">
-		<h4 class="text-muted text-center">Nous sommes le {{now()->format('d M Y')}}</h4>
+		<h4 class="text-muted text-center">Nous sommes le {{now()->format('d / m / Y')}}</h4>
 	</div>
 </div>
 <style type="text/css">
@@ -34,7 +34,7 @@
 							@forelse($data['links'] as $link)
 							@if($loop->iteration % 2==1)
 							<tr>
-							@endif
+								@endif
 								<td>
 									<a class="text-danger  mb-4" href="{{$link->path}}" role="button">
 										<span>
@@ -43,7 +43,7 @@
 										<span class="ml-3">{{$link->nom}}</span>
 									</a>
 								</td>
-							@if($loop->iteration % 2==0)
+								@if($loop->iteration % 2==0)
 							</tr>
 							@endif
 							@empty
@@ -65,7 +65,44 @@
 					</h5>
 				</div>
 				<div class="card-body">
-					<p class="card-text">ICI SE TROUVERA LES NOTES RECENTES</p>
+					<ul class="list-group">
+						<li class="list-group-item text-center">
+							<div class="row">
+								<div class="col-lg-6">
+									<strong>Titre</strong>
+								</div>
+								<div class="col-lg-4">
+									<strong>Date publication</strong>
+								</div>
+								<div class="col-lg-1">
+
+								</div>
+								<div class="col-lg-1">
+									
+								</div>
+							</div>
+						</li>
+						@forelse($data['notes'] as $note)
+						<li class="list-group-item">
+							<div class="row">
+								<div class="col-lg-6 text-left">
+									{{$note->titre}}
+								</div>
+								<div class="col-lg-4">
+									{{$note->datePublication}}
+								</div>
+								<div class="col-lg-1">
+									<a href="{{route('note.show', $note->id)}}" target='_blank'><img src="{{asset('img/visu.ico')}}"></a>
+								</div>
+								<div class="col-lg-1">
+									<a href="{{route('note.download', $note->id)}}" target='_blank'><img src="{{asset('img/download.ico')}}"></a>
+								</div>
+							</div>
+						</li>
+						@empty
+						<p>Pas de note disponible</p>
+						@endforelse
+					</ul>
 				</div>
 			</div>
 		</div>

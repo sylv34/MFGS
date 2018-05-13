@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class DdisTableSeeder extends Seeder
 {
@@ -15,7 +16,7 @@ class DdisTableSeeder extends Seeder
 	         DB::table('ddis')->insert([
 	            'titre' => 'titre ddi'.$i,
 	            'contenu' => 'contenu ddi '.$i,
-	            'date_demande'=> now(),
+	            'date_demande'=> Carbon::now()->format('d-m-Y'),
                 'month' => $i,
 	            'droit_id' => 1,
 	            'demandeur_user_id' => 2,
@@ -27,7 +28,7 @@ class DdisTableSeeder extends Seeder
              DB::table('ddis')->insert([
                 'titre' => 'titre ddi'.$i,
                 'contenu' => 'contenu ddi '.$i,
-                'date_demande'=> now(),
+                'date_demande'=> Carbon::now()->format('d-m-Y'),
                 'month' => $i+4,
                 'droit_id' => 1,
                 'demandeur_user_id' => 2,
@@ -38,7 +39,7 @@ class DdisTableSeeder extends Seeder
         DB::table('ddis')->insert([
                 'titre' => 'titre ddi'.$i,
                 'contenu' => 'contenu ddi '.$i,
-                'date_demande'=> now(),
+                'date_demande'=> Carbon::now()->format('d-m-Y'),
                 'month' => 12,
                 'droit_id' => 2,
                 'demandeur_user_id' => 2,

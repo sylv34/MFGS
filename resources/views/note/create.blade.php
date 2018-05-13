@@ -6,7 +6,7 @@
 		<strong class="text-uppercase">Ajouter une note</strong>
 	</div>
 	<div class="card-body">
-		<form action="{{route('note.store')}}" method="POST">
+		<form action="{{route('note.store')}}" method="POST" enctype="multipart/form-data">
 			@csrf
 			<div class="form-row">
 				<div class="form-group col border-right mr-4 pr-4">
@@ -16,27 +16,35 @@
 						<input type="text" name="titre" id="titre" class="form-control">
 						<small class="text-danger">{{$errors->first('titre')}}</small>
 						<div class="input-group mt-5">
-							<div class="input-group-prepend">
-								<span class="input-group-text">*.pdf</span>
-							</div>
-							<div class="custom-file">
-								<input type="file" class="custom-file-input" id="inputGroupFile01">
-								<label class="custom-file-label" for="inputGroupFile01">Choisir un fichier</label>
-							</div>
+							<input type="file" class="form-control-file" id="inputGroupFile01" name="note">
+							<label for="inputGroupFile01">Choisir un fichier *.pdf uniquement</label>
 						</div>
+						<small class="text-danger">{{$errors->first('note')}}</small>
 					</fieldset>
 				</div>
 				<div class="custom-checkbox col">
 					<fieldset>
 						<legend>Services</legend>
+						<div class="form-group custom-control custom-control-inline">
+							<input class="custom-control-input" type="checkbox" id="info" name="info" >
+							<label class="custom-control-label ml-2" for="info">
+								Informatique
+							</label>
+						</div>
 						@foreach($libelles as $libelle)
 						<div class="form-group custom-control custom-control-inline">
-							<input class="custom-control-input" type="checkbox" id="{{$libelle->libelle}}" name="{{$libelle->libelle}}" >
+							<input class="custom-control-input" type="checkbox" id="{{$libelle->libelle}}" name="{{$libelle->id}}" >
 							<label class="custom-control-label ml-2" for="{{$libelle->libelle}}">
 								{{$libelle->libelle}}
 							</label>
 						</div>
 						@endforeach
+						<div class="form-group custom-control custom-control-inline">
+							<input class="custom-control-input" type="checkbox" id="tout" name="tout" >
+							<label class="custom-control-label ml-2" for="tout">
+								Tout le monde
+							</label>
+						</div>
 					</fieldset>
 					<fieldset class="mt-4">
 						<legend>Autre</legend>

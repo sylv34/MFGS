@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\DdiRequest;
 use Illuminate\Support\Facades\Auth;
 use App\{urgenceDdi,ddi, statuDdi, droit, User};
+use Carbon\Carbon;
 
 class SupportController extends Controller
 {
@@ -42,7 +43,8 @@ class SupportController extends Controller
         ddi::create([
             'titre' => $request->titre,
             'contenu' => $request->contenu,
-            'date_demande' => now(),
+            'date_demande' => Carbon::now()->format('d-m-Y'),
+            'month' => Carbon::now()->month,
             'droit_id' => $request->service,
             'demandeur_user_id' => Auth::User()->id,
             'concerne_user_id' => $request->userConcerne,

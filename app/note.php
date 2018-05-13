@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class note extends Model
 {
-    protected $fillable = ['titre', 'datePublication', 'contenu'];
+    protected $fillable = ['titre', 'datePublication', 'path'];
 	public $timestamps =false;
 
     public function droits()

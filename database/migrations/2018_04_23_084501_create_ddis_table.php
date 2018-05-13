@@ -18,7 +18,7 @@ class CreateDdisTable extends Migration
             $table->string('titre');
             $table->text('contenu');
             $table->text('commentaires')->nullable();
-            $table->date('date_demande');
+            $table->string('date_demande');
             $table->unsignedInteger('month');
             $table->unsignedInteger('droit_id');
             $table->unsignedInteger('demandeur_user_id');
