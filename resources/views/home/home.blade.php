@@ -108,21 +108,8 @@
 		</div>
 	</div>		
 </div>
-<div class="row text-center">
-	<div class="col mx-auto">
-		<div class="card-group">
-			@yield('content-cadre-ddi')
-			<div class="card">
-				<div class="card-header bg-danger text-white" id="headingOne">
-					<h5>
-						Vos Statistiques
-					</h5>
-				</div>
-				<div class="card-body">
-					@yield('content-cadre-stat')
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+@if(Auth::User()->droit->cadre)
+@include('layouts.partials._homeCadre')
+@endif
+
 @stop

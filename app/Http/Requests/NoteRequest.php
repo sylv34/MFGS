@@ -15,8 +15,8 @@ class NoteRequest extends FormRequest
     public function authorize()
     {
         
-         
-                    return Auth::User()->isCadre();
+       
+        return Auth::User()->isCadre();
 
     }
 

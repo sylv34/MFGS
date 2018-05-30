@@ -83,13 +83,6 @@ if (!function_exists('getStat')) {
         ];
     }
 }
-if (!function_exists('getNotes')) {
-    function getNotes(){
-        return note::whereHas('droits', function ($query) {
-            $query->where('droit_id', 18)->orWhere('droit_id', Auth::User()->droit->id);
-        })->orderByDesc('datePublication')->get();
-    }
-}
 
 if (!function_exists('initChart')) {
     function initChart(){

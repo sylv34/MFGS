@@ -3,7 +3,7 @@
     <a class="navbar-brand" href="{{route('login')}}"><img src="{{asset('img/logo.jpg')}}" alt="logo_mfgs" width="50" height="50"></a>
     @else
     <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #dc3545;">
-        <a class="navbar-brand" href="{{route('home',[Auth::user()->nom])}}"><img src="{{asset('img/logo.jpg')}}" alt="logo_mfgs" width="50" height="50"></a>
+        <a class="navbar-brand" href="{{route('home',[Auth::user()->droit->libelle])}}"><img src="{{asset('img/logo.jpg')}}" alt="logo_mfgs" width="50" height="50"></a>
         <ul class="navbar-nav">
             <style type="text/css">
             .nav-item{
@@ -11,14 +11,13 @@
             }
         </style>
         <li class="nav-item active">
-
-            <a class="nav-link" href="{{route('home',[Auth::user()->nom])}}">Accueil {!!url()->current()==route('home') ? '<span class="sr-only">(current)</span>' : ''!!}</a>
+            <a class="nav-link" href="{{route('home',Auth::user()->droit->libelle)}}">Accueil {!!url()->current()==route('home',Auth::user()->droit->libelle) ? '<span class="sr-only">(current)</span>' : ''!!}</a>
         </li>
         <li class="nav-item dropdown ">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="support" >Notes</a>
             <div class="dropdown-menu" aria-labelledby="support">
                 <a class="dropdown-item" href="{{route('note.create')}}">Envoyer une note</a>
-                <a class="dropdown-item" href="{{route('home')}}">Consulter les notes</a>
+                <a class="dropdown-item" href="{{route('note.index')}}">Consulter les notes</a>
             </div>
         </li>
         @if(Auth::User()->droit->cadre)

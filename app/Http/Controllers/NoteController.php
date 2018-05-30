@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\{Auth,Storage};
 
 class NoteController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +22,8 @@ class NoteController extends Controller
      */
     public function index()
     {
-        //
+        $notes = getNotes();
+        return view('note.index',compact('notes'));
     }
 
     /**
@@ -32,8 +37,6 @@ class NoteController extends Controller
             return $value->id==18||$value->id==1;
         });
 
-
-
         return view('note.create',['libelles' =>$serviceLibelle]);
     }
 
@@ -45,35 +48,16 @@ class NoteController extends Controller
      */
     public function store(NoteRequest $request)
     {
-        // nom : remplace tous les espace par des tirets et supprime tous les accents, majuscule etc...
+        // nomNorm : remplace tous les espace par des tirets et supprime tous les accents, majuscule etc...
         // puis ajoute l'extension .pdf
-        $nom = str_finish(str_slug(basename($request->note->getClientOriginalName(),'.pdf')),'.pdf');
+        $nom = nomNorm($request);
+
         $path =$request->file('note')->storeAs('notes',$nom);
 
         $note = note::create(['titre' => $request->titre, 'path' => $path, 'datePublication' => Carbon::now()->format('d-m-Y')]);
 
-        if(isset($request->tout)){
-            $note->droits()->attach(18);
-            return redirect()->route('home')->with('status', "Note diffusée");
-        }
-
-        if (isset($request->info)) {
-            $note->droits()->attach(1);
-        }
-        
-        for ($i=2; $i < 18; $i++) {
-
-            if(isset($request->$i)){
-                if(isset($request->cadre)){
-                    $note->droits()->attach($i);
-                }else{
-                    $note->droits()->attach($i+1);
-                }
-            }                
-        }
-
-    return redirect()->route('home')->with('status', "Note diffusée");
-}
+        return noteAttach($request);
+    }
 
     /**
      * Display the specified resource.
@@ -98,39 +82,5 @@ class NoteController extends Controller
         $note = note::findOrFail($id);
 
         return Response()->download(storage_path("app/public/".$note->path));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

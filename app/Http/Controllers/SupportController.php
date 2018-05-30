@@ -10,6 +10,10 @@ use Carbon\Carbon;
 
 class SupportController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('cadre');
+    }
     /**
      * Display a listing of the resource.
      *
