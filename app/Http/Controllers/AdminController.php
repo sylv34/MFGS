@@ -45,16 +45,15 @@ class AdminController extends Controller
      */
     public function store(UserRequest $request)
     {
-        $droit = isset($request->cadre) ? selectDroitUser($request->service, $request->cadre) : selectDroitUser($request->service);
+        $droit = selectDroitUser($request);
         
-        $isAdmin = isset($request->admin) ? true : false;
         User::create([
             'nom' => strtoupper($request->nom),
             'prenom' => ucfirst($request->prenom),
             'email' => $request->email,
             'password' => Hash::make($request->pw),
-            'droit_id' => $droit,
-            'isAdmin' => $isAdmin,
+            'droit_id' => $droit['droit'],
+            'isAdmin' => $droit['admin'],
         ]);
         return redirect()->route('administration.index')->with('status', "Utilisateur ajouté avec succès");
     }
@@ -130,6 +129,8 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()->route('administration.index')->with('status', sprintf('Profil de %s %s à bien été supprimé', $user->nom, $user->prenom));
     }
 }

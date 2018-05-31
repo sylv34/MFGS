@@ -11,14 +11,14 @@
                     @csrf
 
                     <div class="form-group row">
-                        <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('Adresse Mail') }}</label>
+                        <label for="nom" class="col-sm-4 col-form-label text-md-right">{{ __('Nom') }}</label>
 
                         <div class="col-md-6">
-                            <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="exemple@mfgs.fr" autofocus>
+                            <input id="nom" type="nom" class="form-control{{ $errors->has('nom') ? ' is-invalid' : '' }}" name="nom" value="{{ old('nom') }}" placeholder="Votre Nom ici" autofocus>
 
-                            @if ($errors->has('email'))
+                            @if ($errors->has('nom'))
                                 <span class="invalid-feedback">
-                                    <strong>{{ $errors->first('email') }}</strong>
+                                    <strong>{{ $errors->first('nom') }}</strong>
                                 </span>
                             @endif
                         </div>

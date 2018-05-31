@@ -11,18 +11,21 @@
 |
 */
 
-
+//Home
+Route::get('/home/{pole}', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@index');
 
+//Auth
 Auth::routes();
 
-Route::get('/{pole}', 'HomeController@index')->name('home');
-
+//Support
 Route::get('/support/consultation', 'SupportController@visu')->name('support.visu');
+Route::resource('support', 'SupportController', ['except' => ['index', 'destroy']]);
 
-Route::resource('support', 'SupportController', ['except' => ['index']]);
+//administration utilisateurs
+Route::get('/administration/consultation', 'AdminController@index')->name('administration.index');
+Route::resource('administration', 'AdminController', ['except' => ['index']]);
 
-Route::resource('administration', 'AdminController');
 
 Route::resource('note', 'NoteController');
 
