@@ -154,11 +154,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        mfgs\Providers\AppServiceProvider::class,
+        mfgs\Providers\AuthServiceProvider::class,
+        // mfgs\Providers\BroadcastServiceProvider::class,
+        mfgs\Providers\EventServiceProvider::class,
+        mfgs\Providers\RouteServiceProvider::class,
 
         Khill\Lavacharts\Laravel\LavachartsServiceProvider::class,
 

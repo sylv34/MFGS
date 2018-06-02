@@ -1,7 +1,7 @@
 <?php
 
-Use App\{note};
-use App\Http\Requests\NoteRequest;
+Use mfgs\{note};
+use mfgs\Http\Requests\NoteRequest;
 
 if (!function_exists('nomNorm')) {
 	function nomNorm(NoteRequest $request)

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace mfgs;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,6 +11,6 @@ class Link extends Model
 
     public function user()
     {
-    	return $this->hasMany('App\User');
+    	return $this->hasMany('mfgs\User');
     }
 }

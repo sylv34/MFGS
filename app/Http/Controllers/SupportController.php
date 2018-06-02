@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace mfgs\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\DdiRequest;
+use mfgs\Http\Requests\DdiRequest;
 use Illuminate\Support\Facades\Auth;
-use App\{urgenceDdi,ddi, statuDdi, droit, User};
+use mfgs\{urgenceDdi,ddi, statuDdi, droit, User};
 use Carbon\Carbon;
 
 class SupportController extends Controller

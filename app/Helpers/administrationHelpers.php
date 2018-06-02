@@ -1,5 +1,5 @@
 <?php
-use App\Http\Requests\UserRequest;
+use mfgs\Http\Requests\UserRequest;
 
 if (!function_exists('selectDroitUser')) {
 	function selectDroitUser(UserRequest $request)

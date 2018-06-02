@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace mfgs\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\{PasswordRequest,UserRequest};
+use mfgs\Http\Requests\{PasswordRequest,UserRequest};
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use App\{User,droit};
+use mfgs\{User,droit};
 
 
 class AdminController extends Controller

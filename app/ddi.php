@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace mfgs;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -21,27 +21,27 @@ class ddi extends Model
 	
 	public function droit()
 	{
-		return $this->belongsTo('App\droit');
+		return $this->belongsTo('mfgs\droit');
 	}
 
 	public function concerne_user()
 	{
-		return $this->belongsTo('App\user');
+		return $this->belongsTo('mfgs\user');
 	}
 
 	public function demandeur_user()
 	{
-		return $this->belongsTo('App\user');
+		return $this->belongsTo('mfgs\user');
 	}
 
 	public function urgence_ddi()
 	{
-		return $this->belongsTo('App\urgenceDdi');
+		return $this->belongsTo('mfgs\urgenceDdi');
 	}
 
 	public function statu_ddi()
 	{
-		return $this->belongsTo('App\StatuDdi');
+		return $this->belongsTo('mfgs\StatuDdi');
 	}
 	public function isUrgent(){
 		return $this->urgence_ddi->id==4 ? 'bg-danger text-white font-weight-bold' : '';

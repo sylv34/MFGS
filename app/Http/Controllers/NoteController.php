@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace mfgs\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\NoteRequest;
-use App\{droit,note};
+use mfgs\Http\Requests\NoteRequest;
+use mfgs\{droit,note};
 use Carbon\Carbon;
 use Illuminate\Support\Facades\{Auth,Storage};
 

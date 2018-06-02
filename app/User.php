@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace mfgs;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -32,20 +32,20 @@ class User extends Authenticatable
 
     public function droit()
     {
-        return $this->belongsTo('App\droit');
+        return $this->belongsTo('mfgs\droit');
     }
 
     public function is_concerne_ddi(){
-        return $this->hasMany('App\ddi','concerne_user_id');
+        return $this->hasMany('mfgs\ddi','concerne_user_id');
     }
 
     public function is_demandeur_ddi(){
-        return $this->hasMany('App\ddi','demandeur_user_id');
+        return $this->hasMany('mfgs\ddi','demandeur_user_id');
     }
 
     public function link()
     {
-        $this->belongsToMany('App\Link');
+        $this->belongsToMany('mfgs\Link');
     }
 
     public function isCadre()

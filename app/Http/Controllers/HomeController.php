@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace mfgs\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\{User,droit,Link,ddi,note};
+use mfgs\{User,droit,Link,ddi,note};
 
 
 class HomeController extends Controller

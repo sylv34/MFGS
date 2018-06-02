@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace mfgs;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,6 +11,6 @@ class note extends Model
 
     public function droits()
     {
-    	return $this->belongsToMany('App\droit');
+    	return $this->belongsToMany('mfgs\droit');
     }
 }

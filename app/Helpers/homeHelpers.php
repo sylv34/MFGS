@@ -1,7 +1,7 @@
 <?php
 
-Use App\{ddi,note};
-use App\Charts\DdiChart;
+Use mfgs\{ddi,note};
+use mfgs\Charts\DdiChart;
 
 if (!function_exists('nameViewForUser')) {
 	function nameViewForUser()
@@ -20,7 +20,7 @@ if (!function_exists('nameViewForUser')) {
 if (!function_exists('getPaginateAutoLinks')) {
 	function getPaginateAutoLinks()
 	{
-		return App\Link::whereUser_id(AUth::User()->id)->count()<8 ? App\Link::whereUser_id(Auth::User()->id)->simplePaginate(8) : App\Link::whereUser_id(Auth::User()->id)->paginate(8);
+		return mfgs\Link::whereUser_id(AUth::User()->id)->count()<8 ? mfgs\Link::whereUser_id(Auth::User()->id)->simplePaginate(8) : mfgs\Link::whereUser_id(Auth::User()->id)->paginate(8);
 	}
 }
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace mfgs\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
-use App\User;
+use mfgs\User;
 
 class CheckAdmin
 {
